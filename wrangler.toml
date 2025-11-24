@@ -1,16 +1,20 @@
 name = "telegraph-image"
-pages_build_output_dir = ".vercel/output/static"  # 必须添加这一行
+pages_build_output_dir = ".vercel/output/static"
 compatibility_date = "2024-09-01"
 compatibility_flags = ["nodejs_compat"]
 
-# D1 数据库配置
 [[d1_databases]]
 binding = "DB"
 database_name = "img"
 database_id = "61ad3f3e-bf1a-4176-b320-b96585770f1d"
 
+# 如果有多个环境
 [env.production]
 compatibility_flags = ["nodejs_compat"]
 
 [env.preview]
 compatibility_flags = ["nodejs_compat"]
+
+# 可选：部署配置
+[deployment]
+environment = "production"
