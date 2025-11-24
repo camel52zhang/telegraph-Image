@@ -3,18 +3,24 @@ pages_build_output_dir = ".vercel/output/static"
 compatibility_date = "2024-09-01"
 compatibility_flags = ["nodejs_compat"]
 
+# 全局 D1 数据库配置（用于开发）
 [[d1_databases]]
 binding = "DB"
 database_name = "img"
 database_id = "61ad3f3e-bf1a-4176-b320-b96585770f1d"
 
-# 如果有多个环境
 [env.production]
 compatibility_flags = ["nodejs_compat"]
+# 生产环境 D1 数据库配置
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "img"
+database_id = "61ad3f3e-bf1a-4176-b320-b96585770f1d"
 
 [env.preview]
 compatibility_flags = ["nodejs_compat"]
-
-# 可选：部署配置
-[deployment]
-environment = "production"
+# 预览环境 D1 数据库配置
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "img"
+database_id = "61ad3f3e-bf1a-4176-b320-b96585770f1d"
